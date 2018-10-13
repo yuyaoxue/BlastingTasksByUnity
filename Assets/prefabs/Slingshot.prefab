@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchPoint: {fileID: 0}
+  prefabProjectile: {fileID: 1367255613042722, guid: c13d45448fc70504e91c22966d8f5f97,
+    type: 2}
 --- !u!135 &135622071059229282
 SphereCollider:
   m_ObjectHideFlags: 1
