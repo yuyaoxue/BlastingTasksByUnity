@@ -15,11 +15,45 @@ public class Slingshot : MonoBehaviour
     private Vector3 launchPos;
     private bool aimingMode;
 
+    private float velocityMult = 10;
 
     private void Awake()
     {
         launchPoint.SetActive(false);
         launchPos = launchPoint.transform.position;
+    }
+
+    private void Update()
+    {
+        //如果弹弓处于瞄准模式，则跳过以下代码
+        if (!aimingMode) return;
+        Vector3 mousePos2D = Input.mousePosition;
+
+        // 将鼠标光标位置转换为三维世界坐标
+        mousePos2D.z = -Camera.main.transform.position.z;
+        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+        //计算 launch 到 mousePos3D 两点之间的坐标差
+        Vector3 mouseDelta = mousePos3D - launchPos;
+
+        //将 mouseDelta 坐标差限制在弹弓的球状碰撞器半径范围内
+        float maxMagnitude = this.GetComponent<SphereCollider>().radius;
+
+        if(mouseDelta.magnitude > maxMagnitude)
+        {
+            mouseDelta.Normalize();
+            mouseDelta *= maxMagnitude;
+        }
+
+        //将 projecttitle 移动到新位置
+        Vector3 projPos = launchPos + mouseDelta;
+        projectile.transform.position = projPos;
+        if(Input.GetMouseButtonUp(0))
+        {
+            aimingMode = false;
+            projectile.GetComponent<Rigidbody>().isKinematic = false;
+            projectile.GetComponent<Rigidbody>().velocity = -mouseDelta * velocityMult;
+            projectile = null;
+        }
     }
 
     private void OnMouseEnter()
