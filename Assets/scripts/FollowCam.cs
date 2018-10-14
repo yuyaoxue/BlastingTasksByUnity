@@ -6,6 +6,7 @@ public class FollowCam : MonoBehaviour
 {
     public static FollowCam Instance;
 
+    [HideInInspector]
     public GameObject poi;//摄像机要跟随的物体
 
     public float easing = 0.05f;
