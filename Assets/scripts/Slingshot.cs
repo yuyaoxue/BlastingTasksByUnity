@@ -52,6 +52,8 @@ public class Slingshot : MonoBehaviour
             aimingMode = false;
             projectile.GetComponent<Rigidbody>().isKinematic = false;
             projectile.GetComponent<Rigidbody>().velocity = -mouseDelta * velocityMult;
+            //设置 摄像机要跟随的物体引用
+            FollowCam.Instance.poi = projectile;
             projectile = null;
         }
     }
