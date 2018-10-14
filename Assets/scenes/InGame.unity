@@ -260,6 +260,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c61260f9a81de4ca6f19c0cc17e7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numClouds: 40
+  CloudPrefabs:
+  - {fileID: 1741683197038914, guid: df5bf7e89f8043e47b61a0ce9f2a2a48, type: 2}
+  - {fileID: 1741683197038914, guid: fc27f02cbd1d03f47ba7c27be02b8479, type: 2}
+  - {fileID: 1741683197038914, guid: 2a2a86d133abf3c45a56157bb1e41b52, type: 2}
+  - {fileID: 1741683197038914, guid: 8d9634b9cc5c80a41827fde2102614f1, type: 2}
+  - {fileID: 1741683197038914, guid: 76cb636aac3581140ad4d1b53538c661, type: 2}
+  cloudPosMin: {x: -50, y: -5, z: 10}
+  cloudPosMax: {x: 150, y: 100, z: 10}
+  cloudScaleMin: 1
+  cloudScaleMax: 3
+  cloudSpeedMult: 0.5
+  cloudInstances: []
 --- !u!1 &692871438
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +419,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1778667892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
