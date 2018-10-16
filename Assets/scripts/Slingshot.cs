@@ -5,20 +5,23 @@ using UnityEngine;
 public class Slingshot : MonoBehaviour
 {
 
+    public static Slingshot Instance;
     [SerializeField]
-    private GameObject launchPoint;
+    public GameObject launchPoint;
     [SerializeField]
     private GameObject prefabProjectile;
 
     private GameObject projectile;
 
-    private Vector3 launchPos;
+    public Vector3 launchPos;
     private bool aimingMode;
 
     private float velocityMult = 10;
 
     private void Awake()
     {
+        Instance = this;
+
         launchPoint.SetActive(false);
         launchPos = launchPoint.transform.position;
     }
