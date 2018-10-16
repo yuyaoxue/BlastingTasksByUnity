@@ -32,7 +32,7 @@ public class FollowCam : MonoBehaviour
         {
             destination = poi.transform.position;
 
-            if(poi.tag == "Projectile")
+            if(poi.tag == GameConst.Tag_Projectile)
             {
                 // 如果它处于 sleeping状态（即未移动）
                 if(poi.GetComponent<Rigidbody>().IsSleeping())

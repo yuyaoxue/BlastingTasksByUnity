@@ -33,14 +33,14 @@ public class ProjectileLine : MonoBehaviour
         {
             if(FollowCam.Instance.poi != null)
             {
-                if(FollowCam.Instance.poi.tag == "Projectile")
+                if(FollowCam.Instance.poi.tag == GameConst.Tag_Projectile)
                 {
                     poi = FollowCam.Instance.poi;
 
                 }else
                 {
                     return;//如果未找到兴趣点，则返回
-                }
+                } 
             }
         }
 
@@ -83,7 +83,6 @@ public class ProjectileLine : MonoBehaviour
        
         //用于在线条上添加一个点
         Vector3 pt = _poi.transform.position;
-        Debug.Log("addPoint" + pt);
         if (points.Count > 0 && (pt - lastPoint).magnitude < minDist)
         {
             //如果该点与上一个点的位置不够远，则返回
